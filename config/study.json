@@ -58,7 +58,7 @@
     "evidence_gated_selection": true,
     "require_public_checks": true,
     "public_output_contract": true,
-    "selection_probe_limit": 3,
+    "selection_probe_limit": 2,
     "selection_tool_limit": 6,
     "selection_requires_check": true,
     "retain_candidate_archive": false,
