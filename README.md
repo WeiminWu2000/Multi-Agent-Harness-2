@@ -21,7 +21,7 @@ This no-credential smoke test uses scripted editors and real Python execution. R
 Use Linux and Python 3.11 for the AppWorld environment. Install from a checkout:
 
 ```bash
-git clone [https://github.com/WeiminWu2000/Multi-agent-harness2.git](https://github.com/WeiminWu2000/Multi-Agent-Harness-2.git)
+git clone https://github.com/WeiminWu2000/Multi-agent-harness2.git
 cd Multi-agent-harness2
 python3.11 -m venv .venv
 source .venv/bin/activate
