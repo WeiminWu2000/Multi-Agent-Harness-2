@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the software and the upstream Harness², DS-STAR, MASS, and AppWorld work listed in README."
+title: "Multi-Agent Harness²: Task-Local Role and Coordination Adaptation"
+type: software
+version: 0.1.0
+license: Apache-2.0
+authors:
+  - name: "Multi-Agent Harness² contributors"
+abstract: "Task-local revision of scientific agent role instructions and coordination contracts using executable public evidence."
+repository-code: "https://github.com/WeiminWu2000/Multi-agent-harness2"

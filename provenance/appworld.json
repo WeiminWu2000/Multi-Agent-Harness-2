@@ -1,0 +1,12 @@
+{
+  "source_frozen_at": "2026-10-27T23:22:14.077787+00:00",
+  "appworld_version": "0.1.3.post1",
+  "data_version": "0.1.0",
+  "original_source_sha256": {
+    "mah2/appworld_adapter.py": "da4c6e810d93496eb2331be64b147fa7840c6f5c80a2867702a34690d326a02f",
+    "mah2/appworld_optimizer.py": "b9205a757e47e7879c1d9223fddc02215bf400e5245c3f4fee04fdfbfb672cc0",
+    "mah2/appworld_worker.py": "038f6f678436a57ff90e85821bf7481b24731ddde607515fe97377da19840099",
+    "mah2/mass_rhi.py": "12a184a328dff0d1e54f54831d9a86d4adc7e1b623947edacee6d66c4eee9e37"
+  },
+  "release_changes": "Portable AppWorld paths and CLI; same role/coordination adapter and two-round current-round protocol. No benchmark outcomes or datasets distributed."
+}

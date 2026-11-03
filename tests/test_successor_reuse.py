@@ -1,0 +1,94 @@
+import copy,hashlib,json,tempfile,unittest
+from pathlib import Path
+from unittest.mock import Mock
+from mah2.dsstar.harness import initial
+from mah2.dsstar.optimizer import Experiment
+
+class SuccessorReuseTests(unittest.TestCase):
+    def fixture(self, root, enabled=True, runnable=True):
+        exp=Experiment({'reuse_identical_successor':enabled},root/'round_1')
+        base=initial();role=copy.deepcopy(base);role['roles']['coder']='Check joins.'
+        coord=copy.deepcopy(base);coord['coordination']['coder_receives_question']=True;coord['coordination']['version']=2
+        for name,h in [('reference',base),('candidate_a',role),('candidate_b',coord)]:
+            p=exp.root/name;p.mkdir();program=b'print("fixture")\n';(p/'submission.py').write_bytes(program)
+            (p/'outcome.json').write_text(json.dumps({'runnable':runnable,'program_sha256':hashlib.sha256(program).hexdigest()}))
+        exp.run_team=Mock(return_value={'runnable':True,'fresh':True})
+        return exp,[('reference',base),('candidate_a',role),('candidate_b',coord)]
+
+    def test_each_exact_match_reuses_without_execution(self):
+        for index in range(3):
+            with self.subTest(index=index),tempfile.TemporaryDirectory() as tmp:
+                exp,choices=self.fixture(Path(tmp));out=exp.execute_successor(copy.deepcopy(choices[index][1]),{},Path(tmp),choices)
+                exp.run_team.assert_not_called();self.assertTrue(out['runnable'])
+                self.assertEqual((exp.root/'successor').resolve(),exp.root/choices[index][0])
+                receipt=json.loads((exp.root/'successor_reuse.json').read_text())
+                self.assertFalse(receipt['executed']);self.assertEqual(receipt['source_stage'],choices[index][0])
+
+    def test_combination_is_executed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            exp,choices=self.fixture(Path(tmp));combined=copy.deepcopy(choices[1][1]);combined['coordination']=choices[2][1]['coordination']
+            self.assertTrue(exp.execute_successor(combined,{},Path(tmp),choices)['fresh'])
+            exp.run_team.assert_called_once();self.assertFalse((exp.root/'successor_reuse.json').exists())
+
+    def test_historical_mode_still_executes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            exp,choices=self.fixture(Path(tmp),enabled=False)
+            exp.execute_successor(choices[0][1],{},Path(tmp),choices);exp.run_team.assert_called_once()
+
+    def test_failed_or_modified_program_is_not_reused(self):
+        for bad_hash in [False,True]:
+            with self.subTest(bad_hash=bad_hash),tempfile.TemporaryDirectory() as tmp:
+                exp,choices=self.fixture(Path(tmp),runnable=bad_hash)
+                if bad_hash:(exp.root/'reference/submission.py').write_text('changed')
+                exp.execute_successor(choices[0][1],{},Path(tmp),choices);exp.run_team.assert_called_once()
+
+    def test_recursive_loop_runs_three_teams_and_avoids_duplicate_choices(self):
+        from mah2.dsstar.recursion import run_recursive
+        class OfflineExperiment(Experiment):
+            executions=[]
+            pools=[]
+            reuse_views=[]
+            def run_team(self,stage,harness,packet,data):
+                self.executions.append((self.root.name,stage))
+                p=self.root/stage;p.mkdir();(p/'trace.jsonl').write_text('')
+                code=('print('+repr(self.root.name+stage)+')\n').encode()
+                (p/'submission.py').write_bytes(code)
+                out={'runnable':True,'program_sha256':hashlib.sha256(code).hexdigest()}
+                (p/'outcome.json').write_text(json.dumps(out))
+                if stage=='reference':(self.root/'reference_harness.json').write_text(json.dumps(harness))
+                return out
+            def edit(self,stage,prompt,ev,scope):
+                h=copy.deepcopy(ev['base_harness']);record={'valid':True,'harness':h}
+                (self.root/(stage+'_decision.json')).write_text(json.dumps(record))
+                return h,record
+            def select(self,packet,choices,fallback):
+                self.pools.append(list(choices))
+                return 'reference',choices['reference'],json.loads((self.root/'reference/outcome.json').read_text())
+            def reflect(self,ev,*args):
+                from mah2.dsstar.optimizer import reflection_evidence
+                self.reuse_views.append(reflection_evidence(ev)['successor_reuse'])
+        for mode in ['archive','current-round']:
+            with self.subTest(mode=mode),tempfile.TemporaryDirectory() as tmp:
+                OfflineExperiment.executions=[];OfflineExperiment.pools=[];OfflineExperiment.reuse_views=[]
+                c={'allowance_usd':1,'reuse_identical_successor':True,'public_selection':True,'retain_candidate_archive':True,'runnable_fallback':True,'selection_pool':mode}
+                root=Path(tmp)/'optimization'
+                run_recursive(c,root,'whole_team',{'task_inst':'fixture'},Path(tmp),[],2,OfflineExperiment)
+                self.assertEqual(len(OfflineExperiment.executions),6)
+                self.assertTrue(all(not x['executed'] and x['source_stage']=='reference' for x in OfflineExperiment.reuse_views))
+                self.assertTrue(all(stage!='successor' for _,stage in OfflineExperiment.executions))
+                self.assertTrue(all('successor' not in pool for pool in OfflineExperiment.pools))
+                if mode=='archive':self.assertEqual(sum(x.startswith('archive_') for x in OfflineExperiment.pools[1]),3)
+                else:
+                    self.assertEqual(OfflineExperiment.pools[1],['reference','candidate_a','candidate_b'])
+                    self.assertTrue((root/'round_2/previous').exists())  # Evidence remains available.
+
+    def test_current_round_failure_never_returns_prior_program(self):
+        from mah2.dsstar.recursion import run_recursive
+        class FailedRound:
+            def __init__(self,c,path):self.path=path;path.mkdir()
+            def run(self,method,packet,data,library,starting_harness,round_index,round_count):
+                (self.path/'selected_harness.json').write_text(json.dumps(starting_harness))
+                return {'runnable':round_index==1,'selected_stage':'reference' if round_index==1 else None}
+        with tempfile.TemporaryDirectory() as tmp:
+            result=run_recursive({'allowance_usd':1,'runnable_fallback':True,'selection_pool':'current-round'},Path(tmp)/'run','whole_team',{},Path(tmp),[],2,FailedRound)
+            self.assertFalse(result['runnable']);self.assertEqual(result['selected_round'],2)

@@ -1,0 +1,197 @@
+{
+  "status": "AppWorld Music and Finance task identifiers and instruction hashes.",
+  "source": "https://appworld.dev/appworld/task-explorer",
+  "seed": "mah2-appworld30-20261027",
+  "domain_definition": "Researcher-defined primary task categories from public instructions, not official app labels. Supporting apps may overlap. One task per scenario.",
+  "classification_patterns": {
+    "music": "spotify|\\bsongs?\\b|\\bplaylists?\\b|music library",
+    "finance": "venmo|splitwise|\\bmoney\\b|\\bpayments?\\b|\\bexpenses?\\b"
+  },
+  "debug": [
+    {
+      "task_id": "4ec8de5_1",
+      "split": "dev",
+      "domain": "music",
+      "scenario": "4ec8de5",
+      "instruction_sha256": "2df257490aeb122f0f9d9b18d40e48b8d79a801330f74a5111eaa3b8bacc3163"
+    },
+    {
+      "task_id": "d4e9306_3",
+      "split": "dev",
+      "domain": "music",
+      "scenario": "d4e9306",
+      "instruction_sha256": "36875f2d7f36ee066e6c7795047808381ce7f2bf60d71270ef9174c7bdef84fa"
+    },
+    {
+      "task_id": "396c5a2_2",
+      "split": "dev",
+      "domain": "music",
+      "scenario": "396c5a2",
+      "instruction_sha256": "348f0802f5e4dc043541a9db3e39239bdb75beecfefeea4725b87adda1138445"
+    },
+    {
+      "task_id": "6bdbc26_1",
+      "split": "dev",
+      "domain": "music",
+      "scenario": "6bdbc26",
+      "instruction_sha256": "c511833b9b42fc23534f2c79a1b9029788267b9c06ea5d52dc090742d8a2df8c"
+    },
+    {
+      "task_id": "b119b1f_3",
+      "split": "dev",
+      "domain": "music",
+      "scenario": "b119b1f",
+      "instruction_sha256": "5ded0eb74fd933815efb51df6ac94e92e98b1ffbe2daac27949d8a251a12b302"
+    }
+  ],
+  "evaluation": [
+    {
+      "task_id": "986aa4e_1",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "986aa4e",
+      "instruction_sha256": "db00399157ad423ea9d44b2411a9ad981475f75ecc2ed81a351d5bca010f397e"
+    },
+    {
+      "task_id": "f3f60f0_3",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "f3f60f0",
+      "instruction_sha256": "c4f3e563f81d519cb97a79a3d9246ccdfe6878def0abe71c64cb0fdb8ce8d301"
+    },
+    {
+      "task_id": "59fae45_1",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "59fae45",
+      "instruction_sha256": "106bce28691ced96b9abf7b7534b213e0505231af8513261c5bd44e13cd9eed2"
+    },
+    {
+      "task_id": "09b0ee6_1",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "09b0ee6",
+      "instruction_sha256": "cdc9501bd83c261ef90fff0c9e591f4922d4a7803006fcf5cb0250c77e73934b"
+    },
+    {
+      "task_id": "1150ed6_2",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "1150ed6",
+      "instruction_sha256": "665f4feac2f9e47e2baea245022b4e6c8ae7cbede593c9d99ad84f0832d2b340"
+    },
+    {
+      "task_id": "634f342_2",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "634f342",
+      "instruction_sha256": "e0ebf63030a32f0f80be76a3561c4aefea8b8f04c1bc923e8bc96e2e2cb36474"
+    },
+    {
+      "task_id": "425a494_3",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "425a494",
+      "instruction_sha256": "312625f7e5a041bd1e62a83ed3a281fa2dc0f80aabc1721950a071652d4cc589"
+    },
+    {
+      "task_id": "042a9fc_1",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "042a9fc",
+      "instruction_sha256": "3591707be8a785bd64596cad31bd677c21ba26fea6f29664e0f1bf3d8d7c4762"
+    },
+    {
+      "task_id": "cef9191_1",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "cef9191",
+      "instruction_sha256": "167a355d60355dd1da09d8b9a7d0d0f8fff1df20b43145c0c8af804d51ab13f6"
+    },
+    {
+      "task_id": "8749218_2",
+      "split": "test_normal",
+      "domain": "music",
+      "scenario": "8749218",
+      "instruction_sha256": "449a74803221e92a6e9d2ef28ccf453ba697c75e229bdc286a0450272e49ee93"
+    },
+    {
+      "task_id": "ff58e36_3",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "ff58e36",
+      "instruction_sha256": "43bcac36fc04f0115f6863030c133baebda3806a98a8e3083208c3fc23bd8b64"
+    },
+    {
+      "task_id": "d18139b_3",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "d18139b",
+      "instruction_sha256": "fde8cd19bbd3f3c24846327f14a40884f79c3c5a50d9fb9f60d2d42188e4819d"
+    },
+    {
+      "task_id": "522e5e5_1",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "522e5e5",
+      "instruction_sha256": "ad93d3be45bac8c0ab29cc8c4f27f2fd58bf419c47317f77bef11f8c029de517"
+    },
+    {
+      "task_id": "f861c32_1",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "f861c32",
+      "instruction_sha256": "cf064bd6acdcc067d4ff961fed9079034138acdb1474d53145db46d3ed7b22f7"
+    },
+    {
+      "task_id": "32616b5_3",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "32616b5",
+      "instruction_sha256": "09bd99e8cb4ec65eea509bb826cffe2ef3140d0af9da2a9ee4b3d7a3df9f718d"
+    },
+    {
+      "task_id": "83a7951_3",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "83a7951",
+      "instruction_sha256": "769f1ec74f18397bb96b4a0c553e8601b3b56eed124f3326f57d1e803e4afa36"
+    },
+    {
+      "task_id": "024c982_1",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "024c982",
+      "instruction_sha256": "e44e29c259caee9a43f318a398155e55dc1da4adf3e2a0283d0f4e5c291a32b2"
+    },
+    {
+      "task_id": "ccf4b82_3",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "ccf4b82",
+      "instruction_sha256": "8bb148a44ee9cb5984209ffb35595f00e806c387774ec76f7d0515e0604dce66"
+    },
+    {
+      "task_id": "c77c005_1",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "c77c005",
+      "instruction_sha256": "0620ed8851c962316f38a4a5f3da98311456892c2ae21f0e1a9f105916e9a9ff"
+    },
+    {
+      "task_id": "166f4ff_3",
+      "split": "test_normal",
+      "domain": "finance",
+      "scenario": "166f4ff",
+      "instruction_sha256": "6fccf13d1e0997e769f60987ff5273376c45e020b22878b59fcbc4eeaf20a153"
+    }
+  ],
+  "methods": [
+    "base_glm",
+    "mass_glm",
+    "harness2_glm"
+  ],
+  "per_method_task_cap_usd": 1,
+  "judge": "official programmatic evaluator only, after selection",
+  "test_gate": "Freeze the implementation before evaluation; do not tune on held-out tasks."
+}
