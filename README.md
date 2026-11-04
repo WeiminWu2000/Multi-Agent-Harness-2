@@ -21,8 +21,8 @@ This no-credential smoke test uses scripted editors and real Python execution. R
 Use Linux and Python 3.11 for the AppWorld environment. Install from a checkout:
 
 ```bash
-git clone https://github.com/WeiminWu2000/Multi-Agent-Harness-2.git
-cd Multi-Agent-Harness-2
+git clone https://github.com/WeiminWu2000/SciMARS.git
+cd SciMARS
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -e '.[test]'
@@ -104,6 +104,18 @@ Tests use synthetic fixtures and mocked model calls. See [CONTRIBUTING.md](CONTR
 
 ## Attribution and license
 
-The method builds on [Harness²](https://github.com/google-research/harness2), with prompt components from [DS-STAR](https://github.com/google-research/ds-star), an optional [MASS](https://github.com/SakanaAI/mass) workflow-search adapter, and an execution adapter for [AppWorld](https://github.com/StonyBrookNLP/appworld).
+The method builds on [Harness²: Recursive Agent Harnessing for an Open World](https://arxiv.org/abs/2610.14224) (Xu et al., 2026; [code](https://github.com/google-research/harness2)), with prompt components from [DS-STAR](https://github.com/google-research/ds-star), an optional [MASS](https://github.com/SakanaAI/mass) workflow-search adapter, and an execution adapter for [AppWorld](https://github.com/StonyBrookNLP/appworld).
 
 Our code is Apache-2.0. Dependencies retain their own terms; see [NOTICE](NOTICE), [CITATION.cff](CITATION.cff), and [AppWorld source provenance](provenance/appworld.json). Benchmark data, upstream source checkouts, credentials, and generated trajectories are not included. This is an independent project, not an officially supported Google product.
+
+## References
+
+```bibtex
+@article{xu2026harness2,
+  title   = {Harness$^2$: Recursive Agent Harnessing for an Open World},
+  author  = {Xu, Ruiyao and Chen, Yanfei and CuiZhu, Zhongying and Dalvi Mishra, Bhavana and Ming, Yifei and Yu, Han and Han, Rujun and Lee, Chen-Yu and Pfister, Tomas},
+  journal = {arXiv preprint arXiv:2610.14224},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2610.14224}
+}
+```
