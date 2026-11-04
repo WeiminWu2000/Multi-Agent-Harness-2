@@ -8,10 +8,6 @@ SciMARS provides a seven-role execution team and a separate harness optimizer. T
 
 [Connect your team](docs/custom_teams.md) · [AppWorld quickstart](#appworld-quickstart) · [Design](docs/architecture.md) · [Configuration and evaluation](docs/reproduction.md) · [Your own Python task](docs/custom_tasks.md)
 
-## Video overview
-
-[▶ Watch the SciMARS film](media/SciMARS_film.mp4) · [Download MP4](https://github.com/WeiminWu2000/SciMARS/raw/refs/heads/main/media/SciMARS_film.mp4)
-
 ## Connect your existing team
 
 Install from a checkout using the first installation block below through `python scripts/fetch_dependencies.py`; AppWorld installation is optional for custom teams. Then run:
