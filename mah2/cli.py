@@ -182,7 +182,7 @@ def main(argv=None):
     if args and args[0] == 'run':
         args.pop(0)
     elif not args or args in (['--help'], ['-h']):
-        print('Multi-Agent Harness²\n\nCommands:\n  appworld Run a team in AppWorld (dry-run by default)\n  demo    Run a no-credential toy example with real Python executions\n  setup   Fetch pinned prompt dependencies and create a science environment\n  check   Check local prerequisites without model calls\n  init    Create a task packet and public-data directory\n  run     Run the scientific team on your task (dry-run by default)\n  report  Inspect a saved run and find its deliverables\n\nUse mah2 <command> --help for options.')
+        print('SciMARS\n\nCommands:\n  appworld Run a team in AppWorld (dry-run by default)\n  demo    Run a no-credential toy example with real Python executions\n  setup   Fetch pinned prompt dependencies and create a science environment\n  check   Check local prerequisites without model calls\n  init    Create a task packet and public-data directory\n  run     Run the scientific team on your task (dry-run by default)\n  report  Inspect a saved run and find its deliverables\n\nUse mah2 <command> --help for options.')
         return 0
     return run_main(args)
 

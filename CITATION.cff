@@ -1,10 +1,24 @@
 cff-version: 1.2.0
-message: "Please cite the software and the upstream Harness², DS-STAR, MASS, and AppWorld work listed in README."
-title: "Multi-Agent Harness²: Task-Local Role and Coordination Adaptation"
+message: "Please cite the SciMARS paper using the preferred citation below. See README for upstream references."
+title: "SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery"
 type: software
 version: 0.1.0
 license: Apache-2.0
 authors:
-  - name: "Multi-Agent Harness² contributors"
+  - family-names: Wu
+    given-names: Weimin
+  - family-names: Liu
+    given-names: Han
 abstract: "Task-local revision of scientific agent role instructions and coordination contracts using executable public evidence."
 repository-code: "https://github.com/WeiminWu2000/SciMARS"
+preferred-citation:
+  type: article
+  title: "SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery"
+  authors:
+    - family-names: Wu
+      given-names: Weimin
+    - family-names: Liu
+      given-names: Han
+  year: 2026
+  url: "https://github.com/WeiminWu2000/SciMARS/blob/main/paper/SciMARS.pdf"
+  notes: "Manuscript."

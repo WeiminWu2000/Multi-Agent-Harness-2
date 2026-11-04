@@ -1,6 +1,6 @@
 # Architecture
 
-Multi-Agent Harness² has an execution team and a separate optimizer. The AppWorld adapter runs the same seven roles under each method. A harness contains role procedures and a structured coordination object. The optimizer changes these instructions and handoffs; the scheduler, tools, model, budget, and evaluator remain outside the editable surface.
+SciMARS has an execution team and a separate optimizer. The AppWorld adapter runs the same seven roles under each method. A harness contains role procedures and a structured coordination object. The optimizer changes these instructions and handoffs; the scheduler, tools, model, budget, and evaluator remain outside the editable surface.
 
 ## Execution team
 

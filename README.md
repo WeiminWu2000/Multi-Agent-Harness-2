@@ -1,8 +1,10 @@
-# Multi-Agent Harness²
+# SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery
+
+[Paper (PDF)](paper/SciMARS.pdf) · [Cite SciMARS](#citation) · [Download BibTeX](CITATION.bib)
 
 **Improve how a team works: revise role procedures, test coordination changes, and carry the selected harness into the next round.**
 
-Multi-Agent Harness² provides a seven-role execution team and a separate harness optimizer. The optimizer uses public execution traces to propose role and coordination changes, probe them, and select a current-round execution. You can connect an existing team through an execution callback, or use the included AppWorld and local scientific Python adapters. The editable surface follows the paper’s seven logical roles and existing handoffs.
+SciMARS provides a seven-role execution team and a separate harness optimizer. The optimizer uses public execution traces to propose role and coordination changes, probe them, and select a current-round execution. You can connect an existing team through an execution callback, or use the included AppWorld and local scientific Python adapters. The editable surface follows the paper’s seven logical roles and existing handoffs.
 
 [Connect your team](docs/custom_teams.md) · [AppWorld quickstart](#appworld-quickstart) · [Design](docs/architecture.md) · [Configuration and evaluation](docs/reproduction.md) · [Your own Python task](docs/custom_tasks.md)
 
@@ -101,6 +103,20 @@ python scripts/check_release.py
 ```
 
 Tests use synthetic fixtures and mocked model calls. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+## Citation
+
+If you use SciMARS, please cite our paper:
+
+```bibtex
+@misc{wu2026scimars,
+  title        = {{SciMARS}: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery},
+  author       = {Wu, Weimin and Liu, Han},
+  year         = {2026},
+  howpublished = {Manuscript},
+  url          = {https://github.com/WeiminWu2000/SciMARS/blob/main/paper/SciMARS.pdf}
+}
+```
 
 ## Attribution and license
 

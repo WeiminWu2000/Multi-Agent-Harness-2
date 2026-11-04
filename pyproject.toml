@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "multi-agent-harness2"
 version = "0.1.0"
-description = "Evidence-guided recursive revision of scientific agent teams"
+description = "SciMARS: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "Apache-2.0"}
