@@ -115,7 +115,7 @@ If you use SciMARS, please cite our paper:
   title        = {{SciMARS}: Multi-Agent Recursive Self-Improvement for Closed-Loop Scientific Discovery},
   author       = {Wu, Weimin and Liu, Han},
   year         = {2026},
-  howpublished = {Manuscript},
+  howpublished = {preprint},
   url          = {https://github.com/WeiminWu2000/SciMARS/blob/main/paper/SciMARS.pdf}
 }
 ```
